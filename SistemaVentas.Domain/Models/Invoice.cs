@@ -44,6 +44,5 @@ namespace SistemaVentas.Domain.Models
 
             return subtotal;
         }
-
     }
 }
