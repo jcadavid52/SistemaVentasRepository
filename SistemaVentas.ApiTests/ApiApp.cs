@@ -10,6 +10,7 @@ namespace SistemaVentas.ApiTests
     public class ApiApp:WebApplicationFactory<Program>
     {
         public string PathProductApi { get; } = "/api/product";
+        public string PathOrderApi { get; } = "/api/order";
         protected override void ConfigureWebHost(IWebHostBuilder builder)
         {
             builder.ConfigureServices(services =>
@@ -46,6 +47,10 @@ namespace SistemaVentas.ApiTests
             var product2 = Product.Create("Juego de Sábanas Queen", 400.00m, 20, 5);
             var product3 = Product.Create("Sofá Reclinable", 2500.00m, 10, 5);
 
+            var client1 = Client.Create("cliente uno","correouno@test.com","3152856963","calle test 1");
+            var client2 = Client.Create("cliente dos","correodos@test.com","3217458989","calle test 2");
+            var client3 = Client.Create("cliente tres","correotres@test.com","3198527474","calle test 3");
+
             db.Categories.AddRange(
                 tecnology,
                 clothes,
@@ -58,6 +63,12 @@ namespace SistemaVentas.ApiTests
                 product1,
                 product2,
                 product3
+            );
+
+            db.AddRange(
+                client1,
+                client2,
+                client3
             );
 
             db.SaveChanges();

@@ -46,7 +46,7 @@ namespace SistemaVentas.Api.Controllers
             return Ok(messsageCancel);
         }
         [HttpPost("{orderId}/pay")]
-        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status500InternalServerError)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -56,9 +56,7 @@ namespace SistemaVentas.Api.Controllers
 
             var invoice = await mediator.Send(command);
 
-            var uri = $"order/api/get-by-id/{command.OrderId}";
-
-            return Created(uri, new { invoice });
+            return Ok(invoice);
         }
 
     }

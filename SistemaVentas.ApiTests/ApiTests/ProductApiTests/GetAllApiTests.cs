@@ -4,7 +4,7 @@ using System.Net.Http.Json;
 
 namespace SistemaVentas.ApiTests.ApiTests.ProductApiTests
 {
-    public class ProductGetAllApiTests(ApiApp apiApp) : IClassFixture<ApiApp>
+    public class GetAllApiTests(ApiApp apiApp) : IClassFixture<ApiApp>
     {
         private readonly HttpClient _client = apiApp.CreateClient();
 
